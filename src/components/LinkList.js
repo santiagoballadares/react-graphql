@@ -1,22 +1,16 @@
 import React, { Component } from 'react';
 import { Query } from 'react-apollo';
-import gql from 'graphql-tag';
 import Link from './Link';
-
-const FEED_QUERY = gql`
-  {
-    feed {
-      links {
-        id
-        createdAt
-        url
-        description
-      }
-    }
-  }
-`;
+import { FEED_QUERY } from '../graphql/queries';
 
 class LinkList extends Component {
+  updateCacheAfterVote(store, createVote, linkId) {
+    const data = store.readQuery({ query: FEED_QUERY });
+    const votedLink = data.feed.links.find(link => link.id === linkId);
+    votedLink.votes = createVote.link.votes;
+    store.writequery({ query: FEED_QUERY, data });
+  }
+
   renderData({ loading, error, data }) {
     if (loading) {
       return <div>Fetching data...</div>;
@@ -30,7 +24,14 @@ class LinkList extends Component {
 
     return (
       <div>
-        {linksToRender.map(link => <Link key={link.id} link={link} />)}
+        {linksToRender.map((link, index) => (
+          <Link
+            key={link.id}
+            index={index}
+            link={link}
+            updateStoreAfterVote={this.updateCacheAfterVote}
+          />
+        ))}
       </div>
     );
   }
