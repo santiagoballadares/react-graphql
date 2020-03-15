@@ -45,7 +45,7 @@ class Login extends Component {
 
   async saveUserData(token) {
     localStorage.setItem(AUTH_TOKEN, token);
-  };
+  }
 
   async handleConfirm(data) {
     const { login } = this.state;

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { timeDifferenceForDate } from '../utils'
 import { Mutation } from 'react-apollo';
 import { VOTE_MUTATION } from '../graphql/mutations';
@@ -62,5 +63,11 @@ class Link extends Component {
     );
   }
 }
+
+Link.propTypes = {
+  index: PropTypes.number,
+  link: PropTypes.object,
+  updateStoreAfterVote: PropTypes.func,
+};
 
 export default Link;
