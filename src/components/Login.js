@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import { Mutation } from 'react-apollo';
 import { LOGIN_MUTATION, SIGNUP_MUTATION } from '../graphql/mutations';
 import { AUTH_TOKEN } from '../constants';
@@ -64,12 +64,7 @@ class Login extends Component {
 
     if (!login) {
       nameInputField = (
-        <input
-          type="text"
-          placeholder="Your name"
-          value={name}
-          onChange={this.onChangeName}
-        />
+        <input type="text" placeholder="Your name" value={name} onChange={this.onChangeName} />
       );
     }
 
@@ -103,13 +98,11 @@ class Login extends Component {
           onCompleted={this.handleConfirm}
           onError={this.handleError}
         >
-        {
-          mutation => (
+          {mutation => (
             <div className="pointer mr2 button" onClick={mutation}>
               {login ? 'login' : 'create account'}
             </div>
-          )
-        }
+          )}
         </Mutation>
         <div className="pointer button" onClick={this.onToggleLogin}>
           {login ? 'need to create an account?' : 'already have an account?'}
@@ -133,9 +126,7 @@ class Login extends Component {
 
     return (
       <div>
-        <h4 className="mv3">
-          {login ? 'Login' : 'Sign Up'}
-        </h4>
+        <h4 className="mv3">{login ? 'Login' : 'Sign Up'}</h4>
         {this.renderInputFields()}
         {this.renderButtons()}
         {this.renderError()}

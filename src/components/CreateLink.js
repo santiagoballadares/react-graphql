@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import { Mutation } from 'react-apollo';
-import { POST_MUTATION } from '../graphql/mutations'
+import { POST_MUTATION } from '../graphql/mutations';
 import { FEED_QUERY } from '../graphql/queries';
 
 export class CreateLink extends Component {
@@ -34,17 +34,17 @@ export class CreateLink extends Component {
             className="mb2"
             placeholder="The URL for the link"
             value={url}
-            onChange= {this.onChangeUrl.bind(this)}
+            onChange={this.onChangeUrl.bind(this)}
           />
           <input
             type="text"
             className="mb2"
             placeholder="A description for the link"
             value={description}
-            onChange= {this.onChangeDescription.bind(this)}
+            onChange={this.onChangeDescription.bind(this)}
           />
         </div>
-        <Mutation 
+        <Mutation
           mutation={POST_MUTATION}
           variables={{ url, description }}
           onCompleted={() => this.props.history.push('/')}

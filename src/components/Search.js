@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import { withApollo } from 'react-apollo';
 import { FEED_SEARCH_QUERY } from '../graphql/queries';
 import Link from './Link';
@@ -40,21 +40,21 @@ class Search extends Component {
       return <div>Searching...</div>;
     }
 
-    return links.map((link, index) => (
-      <Link key={link.id} index={index} link={link} />
-    ));
+    return links.map((link, index) => <Link key={link.id} index={index} link={link} />);
   }
 
   render() {
     return (
       <div>
         <div>
-          <input type='text' onChange={this.onChangeInput} />
-          <button className='ml1' onClick={this.search}>search</button>
+          <input type="text" onChange={this.onChangeInput} />
+          <button className="ml1" onClick={this.search}>
+            search
+          </button>
         </div>
         {this.renderLinks()}
       </div>
-    )
+    );
   }
 }
 

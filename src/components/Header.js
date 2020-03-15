@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
 import { AUTH_TOKEN } from '../constants';
@@ -23,24 +23,25 @@ class Header extends Component {
           <Link to="/search" className="ml1 no-underline black">
             search
           </Link>
-          {token &&
+          {token && (
             <div className="flex">
               <div className="ml1">|</div>
               <Link to="create" className="ml1 no-underline black">
                 submit
               </Link>
             </div>
-          }
+          )}
         </div>
         <div className="flex flex-fixed">
-          {token ?
+          {token ? (
             <div className="ml1 pointer black" onClick={this.logout.bind(this)}>
               logout
-            </div> :
+            </div>
+          ) : (
             <Link to="login" className="ml1 no-underline black">
               login
-            </Link>           
-          }
+            </Link>
+          )}
         </div>
       </div>
     );

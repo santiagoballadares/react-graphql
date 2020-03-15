@@ -1,26 +1,26 @@
 import gql from 'graphql-tag';
 
 export const FEED_QUERY = gql`
-{
-  feed {
-    links {
-      id
-      url
-      description
-      createdAt
-      postedBy {
+  {
+    feed {
+      links {
         id
-        name
-      }
-      votes {
-        id
-        user {
+        url
+        description
+        createdAt
+        postedBy {
           id
+          name
+        }
+        votes {
+          id
+          user {
+            id
+          }
         }
       }
     }
   }
-}
 `;
 
 export const FEED_SEARCH_QUERY = gql`

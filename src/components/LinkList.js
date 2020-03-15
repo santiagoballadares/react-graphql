@@ -27,7 +27,7 @@ class LinkList extends Component {
         return Object.assign({}, prev, {
           feed: {
             links: [newLink, ...prev.feed.links],
-            count: prev.feed.links.length = 1,
+            count: prev.feed.links.length + 1,
             __typename: prev.feed.__typename,
           },
         });
@@ -70,11 +70,7 @@ class LinkList extends Component {
   }
 
   render() {
-    return (
-      <Query query={FEED_QUERY}>
-        {(payload) => this.renderData(payload)}
-      </Query>
-    )
+    return <Query query={FEED_QUERY}>{payload => this.renderData(payload)}</Query>;
   }
 }
 

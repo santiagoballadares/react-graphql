@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { timeDifferenceForDate } from '../utils'
+import { timeDifferenceForDate } from '../utils';
 import { Mutation } from 'react-apollo';
 import { VOTE_MUTATION } from '../graphql/mutations';
 import { AUTH_TOKEN } from '../constants';
@@ -36,7 +36,9 @@ class Link extends Component {
         update={this.handleVoteUpdate}
       >
         {voteMutation => (
-          <div className="ml1 gray f11 clickable" onClick={voteMutation} title="Vote">▲</div>
+          <div className="ml1 gray f11 clickable" onClick={voteMutation} title="Vote">
+            ▲
+          </div>
         )}
       </Mutation>
     );
@@ -55,9 +57,7 @@ class Link extends Component {
           <div>
             {description} ({url})
           </div>
-          <div className="f6 lh-copy gray">
-            {this.getVotesInfo()}
-          </div>
+          <div className="f6 lh-copy gray">{this.getVotesInfo()}</div>
         </div>
       </div>
     );
