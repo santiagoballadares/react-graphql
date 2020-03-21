@@ -20,13 +20,17 @@ class Header extends Component {
             new
           </Link>
           <div className="ml1">|</div>
+          <Link to="/top" className="ml1 no-underline black">
+            top
+          </Link>
+          <div className="ml1">|</div>
           <Link to="/search" className="ml1 no-underline black">
             search
           </Link>
           {token && (
             <div className="flex">
               <div className="ml1">|</div>
-              <Link to="create" className="ml1 no-underline black">
+              <Link to="/create" className="ml1 no-underline black">
                 submit
               </Link>
             </div>
@@ -38,7 +42,7 @@ class Header extends Component {
               logout
             </div>
           ) : (
-            <Link to="login" className="ml1 no-underline black">
+            <Link to="/login" className="ml1 no-underline black">
               login
             </Link>
           )}

@@ -3,7 +3,7 @@ const timeDifference = (current, previous) => {
   const milliSecondsPerHour = milliSecondsPerMinute * 60;
   const milliSecondsPerDay = milliSecondsPerHour * 24;
   const milliSecondsPerMonth = milliSecondsPerDay * 30;
-  const milliSecondsPerYear = milliSecondsPerMonth * 365;
+  const milliSecondsPerYear = milliSecondsPerDay * 365;
 
   const elapsed = current - previous;
 
@@ -12,7 +12,7 @@ const timeDifference = (current, previous) => {
   }
 
   if (elapsed < milliSecondsPerMinute) {
-    return 'less than a minute ago';
+    return 'less than 1 min ago';
   } else if (elapsed < milliSecondsPerHour) {
     return `${Math.round(elapsed / milliSecondsPerMinute)} min ago`;
   } else if (elapsed < milliSecondsPerDay) {

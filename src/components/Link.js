@@ -29,12 +29,10 @@ class Link extends Component {
       return null;
     }
 
+    const { link: { id } = {} } = this.props;
+
     return (
-      <Mutation
-        mutation={VOTE_MUTATION}
-        variables={{ linkId: this.props.link.id }}
-        update={this.handleVoteUpdate}
-      >
+      <Mutation mutation={VOTE_MUTATION} variables={{ linkId: id }} update={this.handleVoteUpdate}>
         {voteMutation => (
           <div className="ml1 gray f11 clickable" onClick={voteMutation} title="Vote">
             ▲
